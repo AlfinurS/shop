@@ -1,0 +1,16 @@
+.products {
+  display: flex;
+  justify-content: space-around;
+}
+header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 60px;
+}
+.btn__cart {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(197, 197, 197);
+  border: none;
+}
