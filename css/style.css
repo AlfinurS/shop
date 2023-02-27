@@ -6,6 +6,7 @@ header {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 60px;
+  background-color: rgb(197, 197, 197);
 }
 .btn__cart {
   display: flex;
@@ -13,4 +14,41 @@ header {
   flex-direction: column;
   background-color: rgb(197, 197, 197);
   border: none;
+}
+.buy-btn {
+  width: 100%;
+  height: 32px;
+  background-color: rgb(48, 47, 47);
+  border: none;
+  color:bisque;
+  border-radius: 6px;
+}
+.delete-btn {
+  width: 100%;
+  height: 32px;
+  background-color: rgb(175, 170, 170);
+  border: none;
+  color:rgb(87, 85, 84);
+  border-radius: 6px;
+}
+.product-item {
+  background-color: rgb(241, 241, 241);
+  width: 200px;
+  height: 100%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cart {
+  display: flex;
+  justify-content: space-around;
+}
+.content {
+  margin-bottom: 6px;
+  margin-top: 12px;
+}
+.title {
+  margin-bottom: 12px;
+  margin-top: 12px;
 }
