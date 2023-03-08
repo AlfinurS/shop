@@ -10,12 +10,26 @@
   <body>
     <header>
       <button class="btn__cart" type="button">Корзина
-        <img src="img/cart.svg" alt="menu" width="27" height="28">
+        <a href="#openModal"><img src="img/cart.svg" alt="menu" width="27" height="28"></a>
       </button>
     </header>
     <main>
       <div class="products"></div>
-      <div class="cart"></div>
+        <div >
+          <div id="openModal" class="modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title">Товары в корзине</h3>
+                  <a href="#close" title="Close" class="close">×</a>
+                </div>
+                <div class="modal-body cart">
+                  <p id="modal"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
     </main>
     <script defer src="index.js"></script>
   </body>

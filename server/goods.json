@@ -1,0 +1,56 @@
+[
+    {
+        "title": "jacket",
+        "price": 200,
+        "src": "./img/featured-image-1.jpg",
+        "alt": "man in blue jacket",
+        "color": "red",
+        "size": "43-46",
+        "id": 0
+    },
+    {
+        "title": "trousers",
+        "price": 180,
+        "src": "./img/featured-image-2.jpg",
+        "alt": "woman in black suit",
+        "color": "red",
+        "size": "Xl",
+        "id": 1
+    },
+    {
+        "title": "shoes",
+        "price": 100,
+        "src": "./img/featured-image-3.jpg",
+        "alt": "man in sweatshirt and shorts",
+        "color": "black",
+        "size": "45",
+        "id": 2
+    },
+    {
+        "title": "mango people t-shirt",
+        "price": 10,
+        "src": "./img/featured-image-4.jpg",
+        "alt": "man in t-shirt and trousers",
+        "color": "red",
+        "size": "Xl",
+        "id": 3
+    },
+    {
+        "title": "mango jacket",
+        "price": 150,
+        "src": "./img/featured-image-5.jpg",
+        "alt": "woman in blue jacket",
+        "color": "red",
+        "size": "Xl",
+        "id": 4
+    },
+    {
+        "title": "blouse",
+        "price": 90,
+        "src": "./img/featured-image-6.jpg",
+        "alt": "woman in striped blouse",
+        "color": "red",
+        "size": "43-46",
+        "id": 5
+    }
+]
