@@ -82,7 +82,6 @@ class CartList {
 
     deleteProduct(product){
         const index = this.allProducts.findIndex((item) => item.id === product.id_product);
-
         if (index === -1) {
             return;
         }
@@ -149,12 +148,12 @@ class CartList {
                         data-name="${this.allProducts[index].title}"
                         data-price="${this.allProducts[index].price}"
                     >Удалить</button>
+                    </div>
                     `;
-                const textCart = document.querySelector(`cart-item" data-id="${this.allProducts[index].id}`);
-                textCart.innerHTML = blockCart;
-                textCart.querySelector('.product-quantity').textContent = `Количество: ${this.allProducts[index].quantity}`;
-                textCart.querySelector('.product-price').textContent = `${this.allProducts[index].quantity*this.allProducts[index].price}`;
-                console.log(textCart);
+                const modalP = document.querySelector('.modal-body');
+                console.log(modalP);
+                modalP.insertAdjacentHTML('afterbegin',blockCart);
+                
             }
     }
 }
