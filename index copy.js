@@ -81,35 +81,27 @@ class CartList {
     }
 
     deleteProduct(product){
-        const index = this.allProducts.findIndex((item) => item.id === product.id_product);
-
-        if (index === -1) {
-            return;
-        }
-        if (this.allProducts[index].quantity >= 1) {
+        const index = this.allProducts.findIndex((item) => product.id_product === item.id);
+        if (index ) {
             --this.allProducts[index].quantity;
             const textCart = document.querySelector(`.cart-item[data-id="${this.allProducts[index].id}"]`);
             textCart.querySelector('.product-quantity').textContent = `Количество: ${this.allProducts[index].quantity}`;
             textCart.querySelector('.product-price').textContent = `${this.allProducts[index].quantity*this.allProducts[index].price}`;
             textCart.querySelector('.title').textContent = `${this.allProducts[index].title}`;
             this.allProducts.splice(this.allProducts.indexOf(product),0);
-                if (this.allProducts[index].quantity === 0) {
-                    const textCart = document.querySelector(`.cart-item[data-id="${this.allProducts[index].id}"]`);
-                    textCart.querySelector('.product-quantity').textContent = `Количество: ${this.allProducts[index].quantity}`;
-                    textCart.querySelector('.product-price').textContent = `${this.allProducts[index].quantity*this.allProducts[index].price}`;
-                    textCart.querySelector('.title').textContent = `${this.allProducts[index].title}`;
-                    this.allProducts.splice(this.allProducts.indexOf(product),0);
-                    document.querySelector(`.cart-item[data-id="${this.allProducts[index].id}"]`).remove();
-                }
-        } else {
-            alert('Error');
-        }
+            console.log(this.allProducts, index);
+          } 
+          
+          /* else {
+            this.allProducts.splice(this.allProducts.indexOf(product), 0);
+            document.querySelector(`.cart-item[data-id="${this.allProducts[index].id}"]`).remove();
+            console.log(this.allProducts[index].quantity);
+          } */
     }
 
     render() {
         const block = document.querySelector(this.container);
-        //block.innerHTML = "";
-        for(const product of this.goods){
+        for(let product of this.goods){
             const productObj = new CartItem(product);
             this.allProducts.push(productObj);
             block.insertAdjacentHTML('afterbegin',productObj.render())
@@ -130,32 +122,34 @@ class CartList {
     addProduct(product) {
         // По id продука найти в this.allProducts данный продукт, проверить если его нету, то пушить в this.allProducts и выставлять количество = 1. 
         // Если продукт уже имеется в корзине, найти его индекс в массиве и увеличить у него количество на один.
-        const index = this.allProducts.findIndex((item) => item.id === product.id_product);
-        if (this.allProducts[index].quantity >= 1) {
+        
+        const index = this.allProducts.findIndex((item) => product.id_product === item.id);
+        if (index === -1) {
+            console.log(index)
             this.allProducts[index].quantity++;
             const textCart = document.querySelector(`.cart-item[data-id="${this.allProducts[index].id}"]`);
             textCart.querySelector('.product-quantity').textContent = `Количество: ${this.allProducts[index].quantity}`;
             textCart.querySelector('.product-price').textContent = `${this.allProducts[index].quantity*this.allProducts[index].price}`;
             console.log(textCart);
-         } else {this.allProducts[index].quantity < 1;
-                this.allProducts.push(product);
-                this.allProducts[index].quantity++;
-                const blockCart = `
-                <div class="cart-item" data-id="${this.allProducts[index].id}">
-                    <h4 class="title">${this.allProducts[index].title}</h4>
-                    <p class="product-price">${this.allProducts[index].price}</p>
-                    <p class="product-quantity">${this.allProducts[index].quantity}</p>
-                    <button class="delete-btn" id="delete-btn" data-id="${this.allProducts[index].id}"
-                        data-name="${this.allProducts[index].title}"
-                        data-price="${this.allProducts[index].price}"
-                    >Удалить</button>
-                    `;
-                const textCart = document.querySelector(`cart-item" data-id="${this.allProducts[index].id}`);
-                textCart.innerHTML = blockCart;
-                textCart.querySelector('.product-quantity').textContent = `Количество: ${this.allProducts[index].quantity}`;
-                textCart.querySelector('.product-price').textContent = `${this.allProducts[index].quantity*this.allProducts[index].price}`;
-                console.log(textCart);
-            }
+          } else {
+            this.allProducts.push(product);
+            this.allProducts[index].quantity = 1;
+            const blockCart = `
+            <div class="cart-item" data-id="${this.id}">
+                <h4 class="title">${this.title}</h4>
+                <p class="product-price">${this.price}</p>
+                <p class="product-quantity">${this.quantity}</p>
+                <button class="delete-btn" id="delete-btn" data-id="${this.id}"
+                    data-name="${this.title}"
+                    data-price="${this.price}"
+                >Удалить</button>
+                `;
+            const textCart = document.querySelector(`.cart`);
+            textCart.innerHTML = blockCart;/* 
+            textCart.querySelector('.product-quantity').textContent = `Количество: ${this.allProducts[index].quantity}`;
+            textCart.querySelector('.product-price').textContent = `${this.allProducts[index].quantity*this.allProducts[index].price}`; */
+            //console.log(textCart);
+          }
     }
 }
 
